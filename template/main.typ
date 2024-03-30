@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/mcm-scaffold:0.1.0": *
 
 #show: mcm.with(
   title: "A Simple Example for MCM/ICM Typst Template",
