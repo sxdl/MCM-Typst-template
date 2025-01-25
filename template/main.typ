@@ -1,5 +1,5 @@
-#import "@preview/mcm-scaffold:0.1.0": *
-#import "@preview/mitex:0.2.2": *
+#import "@preview/mcm-scaffold:0.2.0": *
+#import "@preview/mitex:0.2.5": *
 
 #show: mcm.with(
   title: "A Simple Example for MCM/ICM Typst Template",
@@ -26,7 +26,7 @@
 Create a new file and start with following lines.
 
 ```typst
-#import "@preview/mcm-scaffold:0.1.0": *
+#import "@preview/mcm-scaffold:0.2.0": *
 
 #show: mcm.with(
   title: "A Simple Example for MCM/ICM Typst Template",
@@ -48,38 +48,43 @@ Create a new file and start with following lines.
 == Single Image
 
 ```typst
-#img-single(path: str, width: 70%, caption: none, placement: none)
+#img-single(img: image, caption: none, placement: none)
 ```
 
 === An image with default width and no caption
 
 ```typst
-#img-single(path: "template/figures/image1.png")
+#img-single(img: image("figures/image1.png"))
 ```
 
-#img-single(path: "template/figures/image1.png")
+// #img-single(path: "template/figures/image1.png")
+#img-single(img: image("figures/image1.png"))
 
 === An image with caption
 
 ```typst
-#img-single(path: "template/figures/image1.png", caption:[workflow])
+#img-single(img: image("figures/image1.png"), caption:[workflow])
 ```
 
-#img-single(path: "template/figures/image1.png", caption:[workflow])
+// #img-single(path: "template/figures/image1.png", caption:[workflow])
+#img-single(img: image("figures/image1.png"), caption:[workflow])
 
 === Adjust width
 
 ```typst
 #img-single(
-  path: "template/figures/image1.png", 
-  width: 50%,
+  img: image("figures/image1.png", width: 50%), 
   caption:[image of 50% width (default 70%).]
 )
 ```
 
+// #img-single(
+//   path: "template/figures/image1.png", 
+//   width: 50%,
+//   caption:[image of 50% width (default 70%).]
+// )
 #img-single(
-  path: "template/figures/image1.png", 
-  width: 50%,
+  img: image("figures/image1.png", width: 50%), 
   caption:[image of 50% width (default 70%).]
 )
 
@@ -94,44 +99,59 @@ I put 3 images right below the code.
 
 ```typst
 #img-single(
-  path: "template/figures/image1.png", 
+  img: image("figures/image1.png", width: 40%), 
   caption:[placement: top (default none).],
   placement: top
 )
 
 #img-single(
-  path: "template/figures/image1.png", 
-  caption:[placement: auto (default none).],
+  img: image("figures/image1.png", width: 40%), 
+  caption:[placement: top (default none).],
   placement: auto
 )
 
 #img-single(
-  path: "template/figures/image1.png", 
-  caption:[placement: bottom (default none).],
+  img: image("figures/image1.png", width: 40%), 
+  caption:[placement: top (default none).],
   placement: bottom
 )
 ```
 
 See where the images are gone:
 
+// #img-single(
+//   path: "template/figures/image1.png", 
+//   width: 40%,
+//   caption:[placement: top (default none).],
+//   placement: top
+// )
 #img-single(
-  path: "template/figures/image1.png", 
-  width: 40%,
+  img: image("figures/image1.png", width: 40%), 
   caption:[placement: top (default none).],
   placement: top
 )
 
+// #img-single(
+//   path: "template/figures/image1.png", 
+//   width: 40%,
+//   caption:[placement: auto (default none).],
+//   placement: auto
+// )
 #img-single(
-  path: "template/figures/image1.png", 
-  width: 40%,
-  caption:[placement: auto (default none).],
+  img: image("figures/image1.png", width: 40%), 
+  caption:[placement: top (default none).],
   placement: auto
 )
 
+// #img-single(
+//   path: "template/figures/image1.png", 
+//   width: 40%,
+//   caption:[placement: bottom (default none).],
+//   placement: bottom
+// )
 #img-single(
-  path: "template/figures/image1.png", 
-  width: 40%,
-  caption:[placement: bottom (default none).],
+  img: image("figures/image1.png", width: 40%), 
+  caption:[placement: top (default none).],
   placement: bottom
 )
 
@@ -158,26 +178,26 @@ If not specified cloumns and rows, $1 times 2$ grid is in default.
 
 ```typst
 #img-grid(
-  imgs: ("template/figures/image1.png", "template/figures/image1.png")
+  imgs: (image("figures/image1.png", width:70%), image("figures/image1.png", width:70%)),
 )
 ```
 
 #img-grid(
-  imgs: ("template/figures/image1.png", "template/figures/image1.png"),
+  imgs: (image("figures/image1.png", width:70%), image("figures/image1.png", width:70%)),
 )
 
 === Subcaptions
 
 ```typst
 #img-grid(
-  imgs: ("template/figures/image1.png", "template/figures/image1.png"),
+  imgs: (image("figures/image1.png", width:70%), image("figures/image1.png", width:70%)),
   subcaps: ([(a)], [(b)]),
   caption: [Two images with subcaptions.]
 )
 ```
 
 #img-grid(
-  imgs: ("template/figures/image1.png", "template/figures/image1.png"),
+  imgs: (image("figures/image1.png", width:70%), image("figures/image1.png", width:70%)),
   subcaps: ([(a)], [(b)]),
   caption: [Two images with subcaptions.]
 )
@@ -189,7 +209,7 @@ You can specify the columns and rows to put more images as you like.
 ```typst
 #img-grid(
   cols: 2, rows: 2, 
-  imgs: ("template/figures/image1.png",) * 4,
+  imgs: (image("figures/image1.png", width:70%),) * 4,
   subcaps: ([(a)], [(b)], [(c)], [(d)]),
   caption: [Four images with subcaptions.]
 )
@@ -197,7 +217,7 @@ You can specify the columns and rows to put more images as you like.
 
 #img-grid(
   cols: 2, rows: 2, 
-  imgs: ("template/figures/image1.png",) * 4,
+  imgs: (image("figures/image1.png", width:70%),) * 4,
   subcaps: ([(a)], [(b)], [(c)], [(d)]),
   caption: [Four images with subcaptions.]
 )
@@ -205,7 +225,7 @@ You can specify the columns and rows to put more images as you like.
 ```typst
 #img-grid(
   cols: 3, rows: 2, 
-  imgs: ("template/figures/image1.png",) * 6,
+  imgs: (image("figures/image1.png", width:70%),) * 6,
   subcaps: ([(a)], [(b)], [(c)], [(d)], [(e)], [(f)]),
   caption: [Six images with subcaptions.]
 )
@@ -213,7 +233,7 @@ You can specify the columns and rows to put more images as you like.
 
 #img-grid(
   cols: 3, rows: 2, 
-  imgs: ("template/figures/image1.png",) * 6,
+  imgs: (image("figures/image1.png", width:70%),) * 6,
   subcaps: ([(a)], [(b)], [(c)], [(d)], [(e)], [(f)]),
   caption: [Six images with subcaptions.]
 )
@@ -221,7 +241,7 @@ You can specify the columns and rows to put more images as you like.
 ```typst
 #img-grid(
   cols: 4, rows: 3, 
-  imgs: ("template/figures/image1.png",) * 12,
+  imgs: (image("figures/image1.png", width:70%),) * 12,
   subcaps: (
     [(a)], [(b)], [(c)], [(d)], [(e)], [(f)],
     [(g)], [(h)], [(i)], [(j)], [(k)], [(l)],
@@ -232,7 +252,7 @@ You can specify the columns and rows to put more images as you like.
 
 #img-grid(
   cols: 4, rows: 3, 
-  imgs: ("template/figures/image1.png",) * 12,
+  imgs: (image("figures/image1.png", width:70%),) * 12,
   subcaps: (
     [(a)], [(b)], [(c)], [(d)], [(e)], [(f)],
     [(g)], [(h)], [(i)], [(j)], [(k)], [(l)],
