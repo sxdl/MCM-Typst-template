@@ -174,13 +174,20 @@
 
 
 //---------------------------image----------------------------//
-#let img-single(path: str, width: 70%, caption: none, placement: none) = {
+#let img-single(img: image, caption: none, placement: none) = {
   figure(
-    image(path, width: width),
+    img,
     caption: caption,
     placement: placement
   )
 }
+// #let img-single(path: str, width: 70%, caption: none, placement: none) = {
+//   figure(
+//     image(path, width: width),
+//     caption: caption,
+//     placement: placement
+//   )
+// }
   
 #let img-grid(cols: 2, rows: 1, imgs: array, subcaps: (), caption: none, placement: none) = {
   assert(cols * rows == imgs.len())
@@ -214,7 +221,8 @@
     let j = 0
     while j < cols {
       cells.push(
-        grid.cell(image(imgs.at(i * cols + j), width: 70%), align: bottom)
+        // grid.cell(image(imgs.at(i * cols + j), width: 70%), align: bottom)
+        grid.cell(imgs.at(i * cols + j), align: bottom)
       )
       j += 1
     }

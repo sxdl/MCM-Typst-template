@@ -31,7 +31,7 @@ function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/mcm-scaffold:0.1.0": *
+#import "@preview/mcm-scaffold:0.2.0": *
 
 #show: mcm.with(
   title: "A Simple Example for MCM/ICM Typst Template",
