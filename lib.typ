@@ -269,7 +269,7 @@
 }
 
 //---------------------------tools----------------------------//
-#let no-indent = context h(-par.first-line-indent)
+#let no-indent = context h(-par.first-line-indent.amount)
 
 #let math-no-number(content) = { 
   set math.equation(numbering: none) 

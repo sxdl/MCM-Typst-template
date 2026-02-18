@@ -1,4 +1,4 @@
-#import "@preview/mcm-scaffold:0.2.0": *
+#import "@preview/mcm-scaffold:0.2.2": *
 #import "@preview/mitex:0.2.5": *
 
 #show: mcm.with(
@@ -26,7 +26,7 @@
 Create a new file and start with following lines.
 
 ```typst
-#import "@preview/mcm-scaffold:0.2.0": *
+#import "@preview/mcm-scaffold:0.2.2": *
 
 #show: mcm.with(
   title: "A Simple Example for MCM/ICM Typst Template",
